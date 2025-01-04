@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts --fix",
-    "knex": "node --import tsx ./node_modules/.bin/knex"
+    "knex": "node --import tsx ./node_modules/.bin/knex",
+    "test": "npx vitest"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +24,10 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
     "@types/node": "^22.10.5",
+    "@types/supertest": "^6.0.2",
     "eslint": "^8.57.1",
-    "typescript": "^5.7.2"
+    "supertest": "^7.0.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
   }
 }
