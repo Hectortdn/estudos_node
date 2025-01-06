@@ -35,9 +35,9 @@ export async function mealsRoutes(app: FastifyInstance) {
   app.get("/", async (request) => {
     const user = request.user;
 
-    const meals = knex("meals").where("user_id", user?.id).select();
+    const meals = await knex("meals").where("user_id", user?.id).select('*')
 
-    return meals;
+    return { meals };
   });
 
   app.get("/:id", async (request, reply) => {
@@ -122,10 +122,10 @@ export async function mealsRoutes(app: FastifyInstance) {
     let currentSequence = 0;
     meals.forEach((meal) => {
       if (meal.is_on_diet) {
-        totalMealsOnDiet ++ ;
-        currentSequence ++;
+        totalMealsOnDiet++;
+        currentSequence++;
       } else {
-        totalMealsOffDiet ++
+        totalMealsOffDiet++;
         currentSequence = 0;
       }
 

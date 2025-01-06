@@ -14,7 +14,7 @@ export async function checkSessionIdExists(
   const user = await knex("users").where("session_id", sessionId).first();
 
   if (!user) {
-    return replay.status(401).send({ message: "unauthorized" });
+    return replay.status(401).send({ message: "unauthorized user" });
   }
 
   request.user = user;
