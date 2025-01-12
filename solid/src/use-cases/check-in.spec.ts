@@ -18,12 +18,12 @@ let gymsRepository: InMemoryGymRepository
 let sut: CheckInUseCase
 
 describe('CheckIn Use Case', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     checkInRepository = new InMemoryCheckInRepository()
     gymsRepository = new InMemoryGymRepository()
     sut = new CheckInUseCase(checkInRepository, gymsRepository)
 
-    gymsRepository.gyms.push({
+    await gymsRepository.create({
       phone: '',
       id: 'gym-Id',
       description: '',
