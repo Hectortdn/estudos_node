@@ -6,8 +6,11 @@
     "dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
+    "postbuild": "echo oi",
     "eslint": "eslint src --ext .ts --fix",
-    "test": "vitest run",
+    "test": "vitest run --dir src/use-cases",
+    "pretest:e2e": "npm link ./prisma/vitest-environment-prisma && npm link",
+    "test:e2e": "vitest run --dir src/http",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui"
